@@ -1,0 +1,42 @@
+os:
+  - linux
+
+language: php
+
+php:
+  - 8.1
+
+#services:
+#  - mysql
+
+before_script:
+  - composer config -g github-oauth.github.com "$GITHUB_TOKEN"
+  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+  - composer self-update
+  - composer install --no-interaction
+  - cp .env.testing .env
+  #- pear install pear/PHP_CodeSniffer
+  - phpenv rehash
+  #- nvm install 14.20
+  #- npm install npm@latest -g
+  #- npm install -g jshint
+  #- npm install
+  #- mysql -e 'create database testing;'
+  - php artisan key:generate
+  - php artisan migrate
+
+script:
+  - vendor/bin/phpunit --coverage-text
+  #- phpcs # --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
+  #- npm run production
+#  - jshint resources/assets/js/modules/*
+
+notifications:
+  slack:
+    on_success: always
+
+  email:
+    recipients:
+      - travis@slj.me
+    #    on_success: never
+    on_failure: always

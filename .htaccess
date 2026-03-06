@@ -1,0 +1,14 @@
+RewriteEngine on
+
+<Ifmodule mod_php5.c>
+php_value upload_max_filesize "10M"
+php_value post_max_size "10M"
+php_value default_charset "utf-8"
+php_value register_globals "off"
+</Ifmodule>
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php
+
+

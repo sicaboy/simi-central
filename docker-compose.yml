@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+ simi-central-app:
+    build:
+      context: .
+      dockerfile: ./docker/app.Dockerfile
+    restart: unless-stopped
+    ports:
+        - '8053:80'
+    volumes:
+      - ./:/var/www/html
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/extra-php-config.ini
+      - ./docker/unit.json:/docker-entrypoint.d/application.json
+    networks:
+      - caddy
+
+ simi-central-queue:
+    build:
+      context: .
+      dockerfile: ./docker/queue.Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true
+
