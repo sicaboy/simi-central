@@ -53,7 +53,7 @@ let subdomainDebounceTimer = null;
 
 const hasSearchResults = computed(() => searchResults.value.length > 0);
 const locationText = computed(() => [form.state, form.postcode].filter(Boolean).join(' '));
-const hasBusinessDetails = computed(() => businessConfirmed.value || businessMode.value === 'manual');
+const hasBusinessDetails = computed(() => businessMode.value === 'manual');
 const isManualEntry = computed(() => businessMode.value === 'manual');
 
 const submit = () => {
@@ -245,48 +245,21 @@ watch(() => form.name, () => {
           <ProfileDropdown />
         </div>
 
-        <div class="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(320px,0.7fr)] lg:items-end">
+        <div class="mt-10">
           <div class="max-w-3xl">
-            <div class="inline-flex items-center rounded-full border border-amber-200 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200">
-              Simi Onboarding
-            </div>
-            <H2 class="mt-5">
+            <H2>
               {{ t('store.create_heading') }}
             </H2>
             <P class="mt-3 max-w-2xl text-sm sm:text-base">
               {{ t('store.create_description') }}
             </P>
           </div>
-
-          <div class="grid gap-4 rounded-2xl border border-stone-200/80 bg-white/90 p-5 text-sm shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
-            <div>
-              <div class="font-semibold text-stone-900 dark:text-slate-100">Built for Australian property teams</div>
-              <p class="mt-1 text-stone-600 dark:text-slate-300">
-                Onboard the agency first, then let the team enter their workspace for staging, enhancement, and floor plan production.
-              </p>
-            </div>
-            <div class="grid gap-3 sm:grid-cols-3">
-              <div class="rounded-xl bg-stone-100 px-4 py-3 dark:bg-slate-900">
-                <div class="text-xs uppercase tracking-[0.18em] text-stone-500 dark:text-slate-400">Step 1</div>
-                <div class="mt-1 font-medium text-stone-900 dark:text-slate-100">Find business</div>
-              </div>
-              <div class="rounded-xl bg-stone-100 px-4 py-3 dark:bg-slate-900">
-                <div class="text-xs uppercase tracking-[0.18em] text-stone-500 dark:text-slate-400">Step 2</div>
-                <div class="mt-1 font-medium text-stone-900 dark:text-slate-100">Confirm details</div>
-              </div>
-              <div class="rounded-xl bg-stone-100 px-4 py-3 dark:bg-slate-900">
-                <div class="text-xs uppercase tracking-[0.18em] text-stone-500 dark:text-slate-400">Step 3</div>
-                <div class="mt-1 font-medium text-stone-900 dark:text-slate-100">Create workspace</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       <div class="px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
         <form class="space-y-8" @submit.prevent="submit">
-          <div class="grid gap-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
-            <section class="rounded-2xl border border-stone-200 bg-stone-50/70 p-6 dark:border-slate-800 dark:bg-slate-950/60">
+          <section class="rounded-2xl border border-stone-200 bg-stone-50/70 p-6 dark:border-slate-800 dark:bg-slate-950/60">
               <div class="flex items-start justify-between gap-4">
                 <div>
                   <h3 class="text-lg font-semibold text-stone-900 dark:text-slate-100">{{ t('store.business_search') }}</h3>
@@ -373,29 +346,7 @@ watch(() => form.name, () => {
                   {{ t('store.manual_business_help') }}
                 </p>
               </div>
-            </section>
-
-            <section class="rounded-2xl border border-stone-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950/80">
-              <h3 class="text-lg font-semibold text-stone-900 dark:text-slate-100">Workspace Snapshot</h3>
-              <P class="mt-2 text-sm text-stone-600 dark:text-slate-300">
-                The workspace URL is generated automatically from the workspace name and checked for availability.
-              </P>
-
-              <div class="mt-6 grid gap-4 sm:grid-cols-2">
-                <div class="rounded-xl bg-stone-50 p-4 dark:bg-slate-900">
-                  <div class="text-xs uppercase tracking-[0.18em] text-stone-500 dark:text-slate-400">Workspace Name</div>
-                  <div class="mt-2 font-medium text-stone-900 dark:text-slate-100">{{ form.name || 'Will auto-fill from business' }}</div>
-                </div>
-                <div class="rounded-xl bg-stone-50 p-4 dark:bg-slate-900">
-                  <div class="flex items-center justify-between gap-3 text-xs uppercase tracking-[0.18em] text-stone-500 dark:text-slate-400">
-                    <span>Workspace URL</span>
-                    <span v-if="isCheckingSubdomain" class="normal-case tracking-normal">Checking...</span>
-                  </div>
-                  <div class="mt-2 break-all font-medium text-stone-900 dark:text-slate-100">{{ form.subdomain || 'Generated automatically' }}</div>
-                </div>
-              </div>
-            </section>
-          </div>
+          </section>
 
           <section v-if="hasBusinessDetails" class="rounded-2xl border border-stone-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950/80">
             <div>
@@ -483,10 +434,7 @@ watch(() => form.name, () => {
               </div>
             </div>
 
-            <div class="mt-8 flex flex-col gap-4 border-t border-stone-200 pt-6 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
-              <div class="text-sm text-stone-600 dark:text-slate-300">
-                This creates the tenant container your client will use to manage Simi work.
-              </div>
+            <div class="mt-8 flex border-t border-stone-200 pt-6 dark:border-slate-800 sm:justify-end">
               <div class="w-full sm:w-auto sm:min-w-[240px]">
                 <ButtonWithSpinner type="submit" class="w-full" :processing="form.processing">
                   {{ t('store.create_project') }}
