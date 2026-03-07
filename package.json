@@ -1,25 +1,24 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+        "dev": "vite",
+        "build": "vite build",
+        "prod": "npm run build"
     },
     "devDependencies": {
+        "@vitejs/plugin-vue": "^5.2.4",
         "@inertiajs/inertia": "^0.11.0",
         "@tailwindcss/forms": "^0.5.0",
         "@tailwindcss/typography": "^0.5.2",
         "@vue/compiler-sfc": "^3.2.31",
         "axios": "^1.13",
-        "laravel-mix": "^6.0.6",
+        "laravel-vite-plugin": "^1.2.0",
         "lodash": "^4.17.23",
         "postcss": "^8.4.31",
         "postcss-import": "^14.0.2",
         "tailwindcss": "^3.0.0",
+        "vite": "^5.4.19",
         "vue": "^3.2.31",
         "vue-loader": "^17.2.2"
     },
@@ -30,7 +29,6 @@
         "@inertiajs/progress": "^0.2.7",
         "autoprefixer": "^10.4.16",
         "focus-trap": "^7.5.4",
-        "laravel-mix-polyfill": "^3.0.1",
         "laravel-vue-i18n": "^2.8.0",
         "luxon": "^3.4.4",
         "vue-dynamic-heroicons": "^0.0.2",

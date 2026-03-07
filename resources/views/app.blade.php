@@ -11,8 +11,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Favicons -->
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -51,11 +50,7 @@
             }
         </script>
 
-        <!-- Scripts -->
         @routes
-        <script src="{{ mix('js/manifest.js') }}" defer></script>
-        <script src="{{ mix('js/vendor.js') }}" defer></script>
-        <script src="{{ mix('js/app.js') }}" defer></script>
         @inertiaHead
     </head>
     <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900 dark:text-gray-100 min-h-screen">

@@ -58,6 +58,7 @@ Use these terms consistently:
 - store onboarding logic currently lives in `app/Http/Controllers/StoreController.php`
 - business lookup uses `https://biz-search.slj.me`
 - theme values live in `config/theme.php`
+- frontend assets are built with Vite via `vite.config.js`; prefer `@vite([...])` in Blade rather than Mix helpers
 - tenant extra attributes use Stancl tenancy virtual columns: assign top-level attributes like `$tenant->business_name = '...'` and let tenancy persist them into `tenants.data`
 - do not manually nest onboarding metadata inside a top-level `data` payload when creating tenants, or business fields can be dropped before persistence
 - package tenant creation currently uses mass assignment in `CreateTenantAction`, so extra tenant metadata must be assigned on the tenant model after creation and then saved

@@ -156,8 +156,7 @@ composer phpstan
 composer cs-check
 composer cs-fix
 npm run dev
-npm run watch
-npm run production
+npm run build
 ```
 
 ## AU Business Lookup
@@ -180,6 +179,7 @@ This is used to prefill:
 Current theme values are configured in:
 
 - `config/theme.php`
+- `vite.config.js`
 
 Current brand colors:
 

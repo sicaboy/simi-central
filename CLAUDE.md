@@ -47,8 +47,7 @@ composer cs-check   # Check code style
 ### Frontend Development
 ```bash
 npm run dev         # Development build
-npm run watch       # Watch for changes
-npm run production  # Production build
+npm run build       # Production build
 ```
 
 ## Key Directories
