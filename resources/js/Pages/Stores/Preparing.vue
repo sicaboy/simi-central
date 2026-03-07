@@ -59,6 +59,9 @@ onUnmounted(() => {
                 <H2>
                     {{ t('store.preparing_heading') }}
                 </H2>
+                <P class="mt-2 text-sm text-stone-600">
+                    We are creating your Simi workspace so your team can start onboarding listings and image workflows.
+                </P>
             </div>
         </div>
         <div class="mt-8">

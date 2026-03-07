@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'color' => '#439288',
-    'color_light' => '#55B5A6',
-    'color_dark' => '#35746E',
+    'color' => '#ab8949',
+    'color_light' => '#caa663',
+    'color_dark' => '#96763c',
 ];

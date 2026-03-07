@@ -26,20 +26,23 @@ defineProps({
                 <ApplicationLogo class="h-8 w-auto" />
                 <ProfileDropdown />
             </div>
-            <div class="mt-10 flex items-center justify-between">
+            <div class="mt-10 flex items-center justify-between gap-4">
                 <H2>
                     {{ t('store.your_projects') }}
                 </H2>
-                <div class="">
+                <div>
                   <Button
-                      icon-name="plus"
-                      :href="route('store.create')">
-                      {{ t('store.new_project') }}
+                       icon-name="plus"
+                       :href="route('store.create')">
+                       {{ t('store.new_project') }}
                   </Button>
                 </div>
             </div>
         </div>
         <div class="mt-8">
+            <p class="mb-4 max-w-2xl text-sm text-stone-600">
+                Use an existing workspace to continue work on a property marketing project, or set up a new workspace when onboarding a new agency, team, or client account.
+            </p>
             <LinkCards :list="stores" v-if="stores.length" />
             <EmptyState
                 class="py-16 shadow rounded bg-white dark:bg-gray-800"
