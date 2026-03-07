@@ -34,6 +34,6 @@
         "laravel-vue-i18n": "^2.8.0",
         "luxon": "^3.4.4",
         "vue-dynamic-heroicons": "^0.0.2",
-        "vue-i18n": "^9.14.4"
+        "vue-i18n": "^11.2.8"
     }
 }
