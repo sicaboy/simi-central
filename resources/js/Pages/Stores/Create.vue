@@ -434,7 +434,12 @@ watch(() => form.name, () => {
               </div>
             </div>
 
-            <div class="mt-8 flex border-t border-stone-200 pt-6 dark:border-slate-800 sm:justify-end">
+            <div class="mt-8 flex flex-col gap-3 border-t border-stone-200 pt-6 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
+              <div v-if="props.showBackButton" class="w-full sm:w-auto">
+                <Button class-name="secondary" :href="route('store.list')" class="w-full sm:w-auto">
+                  &laquo; {{ t('store.back_to_list') }}
+                </Button>
+              </div>
               <div class="w-full sm:w-auto sm:min-w-[240px]">
                 <ButtonWithSpinner type="submit" class="w-full" :processing="form.processing">
                   {{ t('store.create_project') }}
@@ -448,11 +453,6 @@ watch(() => form.name, () => {
           <input v-model="form.entity_type" type="hidden" name="entity_type" />
           <input v-model="form.suburb" type="hidden" name="suburb" />
 
-          <p v-if="props.showBackButton" class="text-center text-sm text-stone-600 dark:text-slate-400">
-            <ALink :href="route('store.list')">
-              &laquo; {{ t('store.back_to_list') }}
-            </ALink>
-          </p>
         </form>
       </div>
     </div>
