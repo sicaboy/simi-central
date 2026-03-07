@@ -40,7 +40,7 @@ width: 100%;
 }
 
 .header {
-padding-bottom: 18px;
+padding-bottom: 22px;
 text-align: center;
 }
 
@@ -67,7 +67,7 @@ width: 570px;
 }
 
 .content-cell {
-padding: 40px 40px 32px;
+padding: 42px 40px 30px;
 }
 
 .content-cell p,
@@ -110,15 +110,15 @@ color: #ab8949;
 }
 
 .subcopy {
-border-top: 1px solid #eadfc9;
-margin-top: 28px;
-padding-top: 20px;
+margin-top: 24px;
+padding-top: 0;
 }
 
 .subcopy p {
 color: #6d5a37;
 font-size: 13px;
 line-height: 1.6;
+margin-top: 0;
 }
 </style>
 
