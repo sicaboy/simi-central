@@ -126,10 +126,13 @@ margin-top: 0;
 <tr>
 <td align="center">
 <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+{{ $header ?? '' }}
+
+<!-- Email Body -->
 <tr>
 <td class="body" width="100%" cellpadding="0" cellspacing="0">
 <table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-{{ $header ?? '' }}
+<!-- Body content -->
 <tr>
 <td class="content-cell">
 {{ Illuminate\Mail\Markdown::parse($slot) }}
@@ -137,11 +140,11 @@ margin-top: 0;
 {{ $subcopy ?? '' }}
 </td>
 </tr>
-
-{{ $footer ?? '' }}
 </table>
 </td>
 </tr>
+
+{{ $footer ?? '' }}
 </table>
 </td>
 </tr>
