@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 use Sicaboy\SharedSaas\Actions\Central\CreateTenantAction;
 use Sicaboy\SharedSaas\Controllers\Central\StoreController as BaseStoreController;
+use Sicaboy\SharedSaas\Models\Central\Domain;
+use Sicaboy\SharedSaas\Models\Central\ReservedDomain;
 use Sicaboy\SharedSaas\Models\Central\Tenant;
 use Sicaboy\SharedSaas\Models\Central\User;
 use Sicaboy\SharedSaas\Rules\DomainIsValid;
@@ -164,5 +167,57 @@ class StoreController extends BaseStoreController
         }
 
         return response()->json($response->json());
+    }
+
+    public function suggestSubdomain(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'min:2', 'max:255'],
+        ]);
+
+        $normalizer = DomainIsValid::nameToDomainNormalizer();
+        $base = $normalizer($validated['name']);
+
+        if ($base === '') {
+            $base = 'workspace';
+        }
+
+        $candidate = $base;
+        if (! $this->isSubdomainAvailable($candidate, $normalizer)) {
+            $candidate = sprintf('%s-%04d', $base, random_int(1000, 9999));
+
+            while (! $this->isSubdomainAvailable($candidate, $normalizer)) {
+                $candidate = sprintf('%s-%04d', $base, random_int(1000, 9999));
+            }
+        }
+
+        return response()->json([
+            'ok' => true,
+            'subdomain' => $candidate,
+        ]);
+    }
+
+    private function isSubdomainAvailable(string $candidate, \Closure $normalizer): bool
+    {
+        $validator = Validator::make(
+            ['subdomain' => $candidate],
+            [
+                'subdomain' => [
+                    'required',
+                    'string',
+                    'alpha_dash',
+                    'min:4',
+                    'max:255',
+                    new DomainIsValid($normalizer),
+                ],
+            ]
+        );
+
+        if ($validator->fails()) {
+            return false;
+        }
+
+        return ReservedDomain::whereSubdomain($candidate)->doesntExist()
+            && Domain::whereDomain($candidate)->doesntExist();
     }
 }

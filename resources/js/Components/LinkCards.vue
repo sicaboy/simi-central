@@ -1,41 +1,39 @@
 <template>
-    <div class="grid grid-cols-1 gap-y-4">
+    <div class="grid grid-cols-1 gap-4 xl:grid-cols-2">
         <div v-for="item in list"
              :key="item.title"
-             class="link-card relative rounded-lg border border-gray-300 dark:border-gray-700
-              bg-white dark:bg-gray-800
-               px-6 py-5 shadow-sm flex items-center space-x-3
-               hover:border-gray-400 dark:hover:border-gray-600
-               focus-within:ring-2 focus-within:ring-offset-2">
+             class="link-card relative flex items-center space-x-3 rounded-2xl border border-stone-200 bg-white px-6 py-5 shadow-sm transition
+               hover:border-stone-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900
+               dark:hover:border-slate-700 focus-within:ring-2 focus-within:ring-offset-2 dark:focus-within:ring-offset-slate-950">
             <div class="flex-shrink-0">
-                <img class="h-10 w-10 rounded-full object-cover
-                            bg-gray-100 dark:bg-gray-700"
+                 <img class="h-10 w-10 rounded-full object-cover
+                            bg-stone-100 dark:bg-slate-800"
                      :src="item.imageUrl"
                      v-if="item.imageUrl"
-                />
-                <span class="inline-flex items-center justify-center h-10 w-10 rounded-full
-                             bg-gray-100 dark:bg-gray-700"
-                    v-else>
-                    <UserGroupIcon
-                        class="h-6 w-6
-                          text-gray-700 dark:text-gray-400"
-                        aria-hidden="true"/>
-                </span>
-            </div>
-            <div class="flex-1 min-w-0 pl-1">
-                <ALink :href="item.url" class="focus:outline-none">
-                    <span class="absolute inset-0" aria-hidden="true" />
-                    <P class="font-bold text-gray-900">
-                        {{ item.title }}
-                    </P>
-                    <p class="text-sm text-gray-500 truncate">
-                        {{ item.description }}
-                    </p>
-                </ALink>
-            </div>
-            <div class="flex-shrink-0">
-                <ChevronRightIcon class="h-5 w-5 text-gray-400" aria-hidden="true"/>
-            </div>
+                 />
+                 <span class="inline-flex items-center justify-center h-10 w-10 rounded-full
+                             bg-stone-100 dark:bg-slate-800"
+                     v-else>
+                     <UserGroupIcon
+                         class="h-6 w-6
+                          text-stone-700 dark:text-slate-400"
+                         aria-hidden="true"/>
+                 </span>
+             </div>
+             <div class="flex-1 min-w-0 pl-1">
+                 <ALink :href="item.url" class="focus:outline-none">
+                     <span class="absolute inset-0" aria-hidden="true" />
+                     <P class="font-bold text-stone-900 dark:text-slate-100">
+                         {{ item.title }}
+                     </P>
+                     <p class="text-sm text-stone-500 dark:text-slate-400 truncate">
+                         {{ item.description }}
+                     </p>
+                 </ALink>
+             </div>
+             <div class="flex-shrink-0">
+                 <ChevronRightIcon class="h-5 w-5 text-stone-400 dark:text-slate-500" aria-hidden="true"/>
+             </div>
         </div>
     </div>
 </template>

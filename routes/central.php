@@ -29,4 +29,5 @@ Route::middleware([
     Route::post('/stores', [StoreController::class, 'postCreate'])->name('store.create.post');
     Route::get('/api/business-search', [StoreController::class, 'searchBusiness'])->name('store.business.search');
     Route::get('/api/business-search/{id}', [StoreController::class, 'showBusiness'])->name('store.business.show');
+    Route::get('/api/subdomain-suggestion', [StoreController::class, 'suggestSubdomain'])->name('store.subdomain.suggest');
 });
