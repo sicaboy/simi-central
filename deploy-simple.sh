@@ -7,7 +7,8 @@ echo "🚀 Starting deployment..."
 
 # Step: Git pull
 echo "📥 Pulling latest code..."
-git pull origin master
+CURRENT_BRANCH=$(git branch --show-current)
+git pull --ff-only origin "$CURRENT_BRANCH"
 
 
 # Step: Docker operations

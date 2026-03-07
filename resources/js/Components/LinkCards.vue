@@ -63,7 +63,7 @@ const props = defineProps({
     }
 })
 
-const gridClass = props.list.length > 1 ? 'xl:grid-cols-2' : 'max-w-3xl'
+const gridClass = props.list.length > 1 ? 'md:grid-cols-2' : 'max-w-3xl'
 const isSingleCard = props.list.length === 1
 </script>
 

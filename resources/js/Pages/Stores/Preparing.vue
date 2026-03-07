@@ -67,7 +67,7 @@ onUnmounted(() => {
             </div>
 
             <div class="px-6 py-10 text-center sm:px-8">
-                <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-stone-100 dark:bg-slate-950">
+                <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full">
                     <spinner />
                 </div>
 

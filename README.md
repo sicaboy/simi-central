@@ -61,6 +61,13 @@ Business onboarding currently supports:
 - manual entry when lookup does not find the business
 - automatic workspace URL suggestion and availability fallback
 
+Tenant persistence note:
+
+- tenant metadata like business identity should not be nested inside a manual `data` array during tenant creation
+- this app relies on Stancl tenancy virtual columns, so fields like `business_name` and `business_number` should be assigned on the tenant model as top-level attributes and then saved
+- `CreateTenantAction` creates tenants via mass assignment, so extra metadata passed directly in the creation payload can be ignored unless it is assigned after creation
+- keep system-managed tenant fields such as `is_ready` and `tenancy_db_name` untouched and let tenancy/shared-saas manage them alongside the rest of the data payload
+
 ### Mail branding
 
 Mail templates have been updated to better match Simi's brand and product language.

@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\Central\Tenant;
+use Sicaboy\SharedSaas\Actions\Central\CreateTenantAction;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -154,5 +155,39 @@ class TenantTest extends TestCase
         $this->assertNotEquals($tenant1->stripe_account_id, $tenant2->stripe_account_id);
         $this->assertStringStartsWith('acct_', $tenant1->stripe_account_id);
         $this->assertStringStartsWith('acct_', $tenant2->stripe_account_id);
+    }
+
+    /** @test */
+    public function create_tenant_action_stores_business_fields_in_data_without_overwriting_system_data()
+    {
+        $tenant = (new CreateTenantAction)(
+            data: [
+                'name' => 'Simi Test Workspace',
+            ],
+            subdomain: 'simi-test-workspace'
+        );
+
+        $tenant->business_name = 'Simi Realty Pty Ltd';
+        $tenant->business_number = '12345678901';
+        $tenant->business_number_type = 'ABN';
+        $tenant->business_id = 'biz_123';
+        $tenant->entity_type = 'Australian Private Company';
+        $tenant->state = 'NSW';
+        $tenant->postcode = '2000';
+        $tenant->suburb = 'Sydney';
+        $tenant->save();
+
+        $tenant->refresh();
+
+        $this->assertSame('Simi Realty Pty Ltd', data_get($tenant->data, 'business_name'));
+        $this->assertSame('12345678901', data_get($tenant->data, 'business_number'));
+        $this->assertSame('ABN', data_get($tenant->data, 'business_number_type'));
+        $this->assertSame('biz_123', data_get($tenant->data, 'business_id'));
+        $this->assertSame('Australian Private Company', data_get($tenant->data, 'entity_type'));
+        $this->assertSame('NSW', data_get($tenant->data, 'state'));
+        $this->assertSame('2000', data_get($tenant->data, 'postcode'));
+        $this->assertSame('Sydney', data_get($tenant->data, 'suburb'));
+        $this->assertTrue($tenant->is_ready);
+        $this->assertNotEmpty($tenant->tenancy_db_name);
     }
 }

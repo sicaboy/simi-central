@@ -104,19 +104,19 @@ class StoreController extends BaseStoreController
         $tenant = (new CreateTenantAction)(
             data: [
                 'name' => $validated['name'],
-                'data' => [
-                    'business_name' => $validated['business_name'],
-                    'business_number' => $validated['business_number'],
-                    'business_number_type' => $validated['business_number_type'] ?: null,
-                    'business_id' => $validated['business_id'] ?: null,
-                    'entity_type' => $validated['entity_type'] ?: null,
-                    'state' => $validated['state'] ?: null,
-                    'postcode' => $validated['postcode'] ?: null,
-                    'suburb' => $validated['suburb'] ?: null,
-                ],
             ],
             subdomain: $subdomain,
         );
+
+        $tenant->business_name = $validated['business_name'];
+        $tenant->business_number = $validated['business_number'];
+        $tenant->business_number_type = $validated['business_number_type'] ?: null;
+        $tenant->business_id = $validated['business_id'] ?: null;
+        $tenant->entity_type = $validated['entity_type'] ?: null;
+        $tenant->state = $validated['state'] ?: null;
+        $tenant->postcode = $validated['postcode'] ?: null;
+        $tenant->suburb = $validated['suburb'] ?: null;
+        $tenant->save();
 
         /** @var User $user */
         $user = auth()->user();

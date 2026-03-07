@@ -70,6 +70,32 @@ function convertToSlug(text) {
     .replace(/^-+|-+$/g, '');
 }
 
+function stripBusinessSuffixes(text) {
+  let cleaned = text.trim();
+
+  const suffixPatterns = [
+    /(?:,?\s+)(?:pty|proprietary)\.?\s+(?:ltd|limited)\.?$/i,
+    /(?:,?\s+)(?:co|company)\.?\s+(?:ltd|limited)\.?$/i,
+    /(?:,?\s+)(?:ltd|limited)\.?$/i,
+  ];
+
+  let changed = true;
+  while (changed && cleaned) {
+    changed = false;
+
+    for (const pattern of suffixPatterns) {
+      const nextValue = cleaned.replace(pattern, '').trim().replace(/[,.\s]+$/g, '');
+
+      if (nextValue !== cleaned) {
+        cleaned = nextValue;
+        changed = true;
+      }
+    }
+  }
+
+  return cleaned;
+}
+
 async function updateSuggestedSubdomain() {
   const baseName = (form.name || form.business_name || '').trim();
   activeSubdomainRequest += 1;
@@ -143,7 +169,7 @@ function editBusinessSelection() {
 
 function syncWorkspaceNameFromBusiness() {
   if (!form.name) {
-    form.name = form.business_name;
+    form.name = stripBusinessSuffixes(form.business_name) || form.business_name;
   }
 
   queueSuggestedSubdomainUpdate();
@@ -225,7 +251,7 @@ watch(() => form.business_name, (value, oldValue) => {
   }
 
   if (!form.name || form.name === oldValue) {
-    form.name = value;
+    form.name = stripBusinessSuffixes(value) || value;
   }
 
   queueSuggestedSubdomainUpdate();
