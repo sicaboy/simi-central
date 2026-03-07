@@ -393,7 +393,7 @@ watch(() => form.name, () => {
           <section class="rounded-2xl border border-stone-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950/80">
             <div>
               <h3 class="text-lg font-semibold text-stone-900 dark:text-slate-100">Workspace Setup</h3>
-              <P class="mt-1 text-sm text-stone-600 dark:text-slate-300">Give the client a clear workspace identity and private URL for future sign-ins.</P>
+              <P class="mt-1 text-sm text-stone-600 dark:text-slate-300">Set a clear workspace name and private URL for the business or franchise.</P>
             </div>
 
             <div class="mt-6 grid gap-6 lg:grid-cols-2">
