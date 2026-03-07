@@ -15,6 +15,6 @@
 @endcomponent
 @endif
 
-Thanks,<br>
-{{ config('app.name') }}
+Regards,<br>
+{{ config('shared-saas.central.name') }}
 @endcomponent

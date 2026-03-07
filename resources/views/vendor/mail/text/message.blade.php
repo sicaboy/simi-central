@@ -1,8 +1,8 @@
 @component('mail::layout')
     {{-- Header --}}
     @slot('header')
-        @component('mail::header', ['url' => config('app.url')])
-            {{ config('app.name') }}
+        @component('mail::header', ['url' => config('shared-saas.central.url')])
+            {{ config('shared-saas.central.name') }}
         @endcomponent
     @endslot
 
@@ -21,7 +21,9 @@
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            © {{ date('Y') }} {{ config('app.name') }}. @lang('All rights reserved.')
+            © {{ date('Y') }} {{ config('shared-saas.central.name') }}. @lang('All rights reserved.')
+
+            {{ config('shared-saas.central.name') }} - AI virtual staging and property image workflows for modern real estate teams.
         @endcomponent
     @endslot
 @endcomponent

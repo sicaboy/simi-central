@@ -31,7 +31,8 @@
 {{-- Footer --}}
 @slot('footer')
 @component('mail::footer')
-Powered by <a href="{{ config('shared-saas.central.url') }}">{{ config('shared-saas.central.name') }}</a>
+<a href="{{ config('shared-saas.central.url') }}">{{ config('shared-saas.central.name') }}</a><br>
+AI virtual staging and property image workflows for modern real estate teams.
 @endcomponent
 @endslot
 @endcomponent

@@ -1,17 +1,17 @@
 @component('mail::message')
 **Hi {{ $notifiable->name }},**
 
-Welcome to **{{ config('shared-saas.central.name') }}** – your all-in-one digital platform designed to elevate your local business.
+Welcome to **{{ config('shared-saas.central.name') }}**.
 
-As a member of the {{ $team->name }} team, you now have access to tools that simplify eGift card sales, appointment bookings, service feedback, and online store management.
+You are now part of the **{{ $team->name }}** workspace, where your team can manage virtual staging, image enhancement, and related property marketing workflows.
 
-Start exploring the features and take your business to new heights.
+Start by signing in and continuing work inside the workspace.
 
 @component('mail::button', ['url' => config('shared-saas.central.url')])
 Get Started
 @endcomponent
 
-If you have any questions or need assistance, please don't hesitate to reach out to our support team.
+If you need help getting started, reply to this email and the Simi team will assist you.
 
 Regards,
 

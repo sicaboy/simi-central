@@ -3,7 +3,7 @@
 
 **{{ $user->name }}** ({{ $user->email }}) has joined the **{{ $team->name }}** team.
 
-You can manage your team members and their roles through the {{ config('shared-saas.central.name') }} admin panel.
+You can manage team access, permissions, and workspace activity in your {{ config('shared-saas.central.name') }} account.
 
 Regards,<br>
 
