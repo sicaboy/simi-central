@@ -71,16 +71,10 @@ onUnmounted(() => {
                     <spinner />
                 </div>
 
-                <div class="mt-6 space-y-2">
-                    <P>
-                        This usually takes a moment while Simi prepares the workspace container and redirect flow.
-                    </P>
-                </div>
-
                 <div class="mt-8 rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4 text-left dark:border-slate-800 dark:bg-slate-950/80">
                     <div class="text-sm font-semibold text-stone-900 dark:text-slate-100">What happens next</div>
                     <div class="mt-2 text-sm text-stone-600 dark:text-slate-300">
-                        Your account will be redirected automatically as soon as the workspace is ready.
+                        You will be redirected automatically when your workspace is ready.
                     </div>
                 </div>
 

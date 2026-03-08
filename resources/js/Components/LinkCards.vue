@@ -11,32 +11,32 @@
                 aria-hidden="true"
             />
             <div class="flex-shrink-0">
-                 <img class="h-10 w-10 rounded-full object-cover
-                            bg-stone-100 dark:bg-slate-800"
-                     :class="isSingleCard ? 'h-14 w-14' : ''"
+                 <img class="h-9 w-9 rounded-full object-cover
+                            bg-stone-100 dark:bg-slate-800 sm:h-10 sm:w-10"
+                     :class="isSingleCard ? 'h-11 w-11 sm:h-14 sm:w-14' : ''"
                      :src="item.imageUrl"
                      v-if="item.imageUrl"
                  />
-                 <span class="inline-flex items-center justify-center h-10 w-10 rounded-full
-                              bg-stone-100 dark:bg-slate-800"
-                     :class="isSingleCard ? 'h-14 w-14' : ''"
+                 <span class="inline-flex items-center justify-center h-9 w-9 rounded-full
+                              bg-stone-100 dark:bg-slate-800 sm:h-10 sm:w-10"
+                     :class="isSingleCard ? 'h-11 w-11 sm:h-14 sm:w-14' : ''"
                      v-else>
-                     <UserGroupIcon
-                         class="h-6 w-6
-                           text-stone-700 dark:text-slate-400"
-                         :class="isSingleCard ? 'h-7 w-7' : ''"
-                         aria-hidden="true"/>
-                  </span>
-              </div>
-              <div class="relative flex-1 min-w-0 pl-1" :class="isSingleCard ? 'pl-3' : ''">
+                      <UserGroupIcon
+                         class="h-5 w-5
+                           text-stone-700 dark:text-slate-400 sm:h-6 sm:w-6"
+                         :class="isSingleCard ? 'h-6 w-6 sm:h-7 sm:w-7' : ''"
+                          aria-hidden="true"/>
+                   </span>
+               </div>
+              <div class="relative flex-1 min-w-0" :class="isSingleCard ? 'pl-2 sm:pl-3' : 'pl-0.5 sm:pl-1'">
                   <ALink :href="item.url" class="focus:outline-none">
                       <span class="absolute inset-0" aria-hidden="true" />
-                     <P class="font-bold text-stone-900 dark:text-slate-100" :class="isSingleCard ? 'text-lg' : ''">
+                     <P class="font-bold text-stone-900 dark:text-slate-100" :class="isSingleCard ? 'sm:text-lg' : ''">
                           {{ item.title }}
                       </P>
-                     <p class="text-sm text-stone-500 dark:text-slate-400" :class="isSingleCard ? 'mt-2 text-base leading-6' : 'truncate'">
-                          {{ item.description }}
-                      </p>
+                     <p class="truncate text-sm text-stone-500 dark:text-slate-400" :class="isSingleCard ? 'mt-2 leading-5 sm:text-base sm:leading-6' : ''">
+                           {{ item.description }}
+                       </p>
                   </ALink>
               </div>
               <div class="flex-shrink-0">
@@ -70,6 +70,12 @@ const isSingleCard = props.list.length === 1
 <style scoped>
 .link-card {
   --tw-ring-color: v-bind('themeColor');
-  padding: v-bind('isSingleCard ? "2rem" : "1.25rem 1.5rem"');
+  padding: v-bind('isSingleCard ? "1rem" : "0.875rem"');
+}
+
+@media (min-width: 640px) {
+  .link-card {
+    padding: v-bind('isSingleCard ? "2rem" : "1.25rem 1.5rem"');
+  }
 }
 </style>
