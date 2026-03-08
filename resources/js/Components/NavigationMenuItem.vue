@@ -1,5 +1,5 @@
 <script setup>
-import {DynamicHeroicon} from "vue-dynamic-heroicons";
+import DynamicIcon from '@/Components/DynamicIcon.vue';
 import {Link} from "@inertiajs/inertia-vue3";
 
 defineProps({
@@ -19,7 +19,7 @@ defineProps({
                         ? 'bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100'
                         : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100',
                         'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
-    <DynamicHeroicon
+    <DynamicIcon
         v-if="item.icon"
         :name="item.icon"
         :outline="true"

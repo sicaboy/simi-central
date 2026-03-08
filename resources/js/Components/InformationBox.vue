@@ -1,5 +1,5 @@
 <script setup>
-import {DynamicHeroicon} from "vue-dynamic-heroicons";
+import DynamicIcon from '@/Components/DynamicIcon.vue';
 
 const props = defineProps({
   iconName: {
@@ -30,7 +30,7 @@ const props = defineProps({
     <!-- bg-yellow-50 dark:bg-yellow-950 -->
     <div class="flex">
       <div class="flex-shrink-0">
-        <DynamicHeroicon
+        <DynamicIcon
             :name="iconName"
             class="h-5 w-5" aria-hidden="true"
             :class="`text-${colorScheme}-400 dark:text-${colorScheme}-500`"

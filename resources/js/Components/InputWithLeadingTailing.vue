@@ -2,7 +2,7 @@
 import {onMounted, ref} from 'vue';
 import Input from '@/Components/Input.vue';
 import {usePage} from "@inertiajs/inertia-vue3";
-import {DynamicHeroicon} from "vue-dynamic-heroicons";
+import DynamicIcon from '@/Components/DynamicIcon.vue';
 import Tooltip from "@/Components/Tooltip.vue";
 
 defineProps({
@@ -120,7 +120,7 @@ const themeColor = page.props.value.theme.color
         <Tooltip :text="tailingButtonTooltip"/>
       </div>
 
-      <DynamicHeroicon
+      <DynamicIcon
           v-if="tailingButtonIcon"
           class="h-5 w-5 text-gray-400" aria-hidden="true"
           :name="tailingButtonIcon"

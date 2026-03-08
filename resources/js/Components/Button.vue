@@ -1,7 +1,7 @@
 <script setup>
 import {usePage} from "@inertiajs/inertia-vue3";
 import ALink from "@/Components/ALink.vue";
-import {DynamicHeroicon} from "vue-dynamic-heroicons";
+import DynamicIcon from '@/Components/DynamicIcon.vue';
 
 defineProps({
   type: {
@@ -35,7 +35,7 @@ const themeColorDark = page.props.value.theme.color_dark || page.props.value.the
         :class="[className, { 'opacity-25': disabled}]"
         :disabled="disabled"
     >
-      <DynamicHeroicon
+      <DynamicIcon
           :name="iconName"
           class="-ml-1 mr-2 h-4 w-4" aria-hidden="true"
           v-if="iconName" />

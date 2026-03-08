@@ -15,7 +15,7 @@
               class="mx-auto max-w-xl transform overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
             <Combobox @update:modelValue="onSelect">
               <div class="relative">
-                <DynamicHeroicon
+                <DynamicIcon
                     name="search"
                     size="5"
                     outline=true
@@ -27,7 +27,7 @@
               </div>
 
               <div v-if="query === ''" class="border-t border-gray-100 dark:border-gray-700 py-14 px-6 text-center text-sm sm:px-14">
-                <DynamicHeroicon
+                <DynamicIcon
                     name="search"
                     size="8"
                     outline=true
@@ -59,7 +59,7 @@
 
               <div v-if="query !== '' && filteredItems.length === 0"
                    class="border-t border-gray-100 dark:border-gray-700 py-14 px-6 text-center text-sm sm:px-14">
-                <DynamicHeroicon
+                <DynamicIcon
                     name="x"
                     size="8"
                     outline=true
@@ -81,7 +81,7 @@
 
 <script setup>
 import {computed, ref} from 'vue'
-import {DynamicHeroicon} from "vue-dynamic-heroicons";
+import DynamicIcon from '@/Components/DynamicIcon.vue';
 import {
   Combobox,
   ComboboxInput,
