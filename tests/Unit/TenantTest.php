@@ -3,8 +3,9 @@
 namespace Tests\Unit;
 
 use App\Models\Central\Tenant;
-use Sicaboy\SharedSaas\Actions\Central\CreateTenantAction;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
+use Sicaboy\SharedSaas\Actions\Central\CreateTenantAction;
 use Tests\TestCase;
 
 class TenantTest extends TestCase
@@ -177,17 +178,25 @@ class TenantTest extends TestCase
         $tenant->suburb = 'Sydney';
         $tenant->save();
 
-        $tenant->refresh();
+        $persistedTenant = Tenant::query()->findOrFail($tenant->id);
+        $storedData = json_decode(
+            DB::table('tenants')->where('id', $tenant->id)->value('data'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
 
-        $this->assertSame('Simi Realty Pty Ltd', data_get($tenant->data, 'business_name'));
-        $this->assertSame('12345678901', data_get($tenant->data, 'business_number'));
-        $this->assertSame('ABN', data_get($tenant->data, 'business_number_type'));
-        $this->assertSame('biz_123', data_get($tenant->data, 'business_id'));
-        $this->assertSame('Australian Private Company', data_get($tenant->data, 'entity_type'));
-        $this->assertSame('NSW', data_get($tenant->data, 'state'));
-        $this->assertSame('2000', data_get($tenant->data, 'postcode'));
-        $this->assertSame('Sydney', data_get($tenant->data, 'suburb'));
-        $this->assertTrue($tenant->is_ready);
-        $this->assertNotEmpty($tenant->tenancy_db_name);
+        $this->assertSame('Simi Realty Pty Ltd', data_get($storedData, 'business_name'));
+        $this->assertSame('12345678901', data_get($storedData, 'business_number'));
+        $this->assertSame('ABN', data_get($storedData, 'business_number_type'));
+        $this->assertSame('biz_123', data_get($storedData, 'business_id'));
+        $this->assertSame('Australian Private Company', data_get($storedData, 'entity_type'));
+        $this->assertSame('NSW', data_get($storedData, 'state'));
+        $this->assertSame('2000', data_get($storedData, 'postcode'));
+        $this->assertSame('Sydney', data_get($storedData, 'suburb'));
+        $this->assertSame('Simi Realty Pty Ltd', $persistedTenant->business_name);
+        $this->assertSame('12345678901', $persistedTenant->business_number);
+        $this->assertTrue($persistedTenant->is_ready);
+        $this->assertNotEmpty($persistedTenant->tenancy_db_name);
     }
 }
