@@ -29,7 +29,7 @@ const props = defineProps({
 
 const contentWidthClass = computed(() => {
     if (props.width === 'wide') {
-        return 'max-w-6xl';
+        return 'max-w-5xl';
     }
 
     if (props.width === 'medium') {
