@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import {Link, usePage} from '@inertiajs/inertia-vue3';
+import {Link, usePage} from '@inertiajs/vue3';
 
 defineProps({
   href: {
@@ -31,9 +31,9 @@ defineProps({
   },
 })
 const page = usePage()
-const themeColor = page.props.value.theme.color
-const themeColorLight = page.props.value.theme.color_light || page.props.value.theme.color
-const themeColorDark = page.props.value.theme.color_dark || page.props.value.theme.color
+const themeColor = page.props.theme.color
+const themeColorLight = page.props.theme.color_light || page.props.theme.color
+const themeColorDark = page.props.theme.color_dark || page.props.theme.color
 </script>
 
 <style scoped>

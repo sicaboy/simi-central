@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import {usePage} from "@inertiajs/inertia-vue3";
+import {usePage} from "@inertiajs/vue3";
 
 const emit = defineEmits(['update:checked']);
 
@@ -26,8 +26,8 @@ const proxyChecked = computed({
 });
 
 const page = usePage()
-const themeColor = page.props.value.theme.color
-const themeColorLight = page.props.value.theme.color_light || page.props.value.theme.color
+const themeColor = page.props.theme.color
+const themeColorLight = page.props.theme.color_light || page.props.theme.color
 </script>
 
 

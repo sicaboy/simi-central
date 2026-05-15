@@ -1,7 +1,7 @@
 <script setup>
 import {onMounted, ref} from 'vue';
 import Input from '@/Components/Input.vue';
-import {usePage} from "@inertiajs/inertia-vue3";
+import {usePage} from "@inertiajs/vue3";
 import DynamicIcon from '@/Components/DynamicIcon.vue';
 import Tooltip from "@/Components/Tooltip.vue";
 
@@ -63,7 +63,7 @@ const input = ref(null);
 defineExpose({focus: () => input.value.focus()});
 
 const page = usePage()
-const themeColor = page.props.value.theme.color
+const themeColor = page.props.theme.color
 </script>
 
 <template>

@@ -36,8 +36,8 @@
 </template>
 
 <script setup>
-import {Link} from '@inertiajs/inertia-vue3';
-import {Inertia} from "@inertiajs/inertia";
+import {Link} from '@inertiajs/vue3';
+import {router} from "@inertiajs/core";
 
 function getInitial(name) {
   // Split the string into an array of strings
@@ -53,7 +53,7 @@ function getInitial(name) {
 }
 
 function logout() {
-  Inertia.post(route('logout'))
+  router.post(route('logout'))
 }
 
 const props = defineProps({

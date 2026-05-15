@@ -51,10 +51,10 @@ import {UserGroupIcon} from '@heroicons/vue/outline'
 import {ChevronRightIcon} from '@heroicons/vue/outline'
 import ALink from "@/Components/ALink.vue";
 import P from "@/Components/P.vue";
-import {usePage} from "@inertiajs/inertia-vue3";
+import {usePage} from "@inertiajs/vue3";
 
 const page = usePage()
-const themeColor = page.props.value.theme.color
+const themeColor = page.props.theme.color
 
 const props = defineProps({
     list: {

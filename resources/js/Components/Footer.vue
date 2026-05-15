@@ -121,7 +121,7 @@
 
 <script setup>
 import {computed, onMounted, onUnmounted, ref} from 'vue';
-import {usePage} from '@inertiajs/inertia-vue3';
+import {usePage} from '@inertiajs/vue3';
 import {useI18n} from 'vue-i18n';
 import {loadTranslations, setLocale} from '@/i18n';
 import axios from 'axios';
@@ -168,11 +168,11 @@ const {t, locale} = useI18n();
 
 // 从页面属性中获取当前语言和可用语言
 const page = usePage();
-const currentLocale = ref(page.props.value.locale || 'en');
+const currentLocale = ref(page.props.locale || 'en');
 
 // 获取可用语言列表
 const availableLocales = computed(() => {
-  const locales = page.props.value.available_locales || {};
+  const locales = page.props.available_locales || {};
   return Object.keys(locales).map(code => ({
     code,
     name: locales[code]

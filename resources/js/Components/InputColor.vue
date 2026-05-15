@@ -1,6 +1,6 @@
 <script setup>
 import {onMounted, ref} from 'vue';
-import {usePage} from "@inertiajs/inertia-vue3";
+import {usePage} from "@inertiajs/vue3";
 
 defineProps({
   required: {
@@ -59,7 +59,7 @@ onMounted(() => {
 defineExpose({focus: () => input.value.focus()});
 
 const page = usePage()
-const themeColor = page.props.value.theme.color
+const themeColor = page.props.theme.color
 </script>
 
 <template>

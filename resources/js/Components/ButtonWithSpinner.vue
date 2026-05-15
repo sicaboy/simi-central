@@ -1,6 +1,6 @@
 <script setup>
 import ButtonSpinner from "@/Components/ButtonSpinner.vue";
-import {usePage} from "@inertiajs/inertia-vue3";
+import {usePage} from "@inertiajs/vue3";
 
 defineProps({
   type: {
@@ -11,8 +11,8 @@ defineProps({
 });
 
 const page = usePage()
-const themeColor = page.props.value.theme.color
-const themeColorDark = page.props.value.theme.color_dark || page.props.value.theme.color
+const themeColor = page.props.theme.color
+const themeColorDark = page.props.theme.color_dark || page.props.theme.color
 </script>
 
 <template>

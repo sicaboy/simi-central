@@ -37,7 +37,7 @@
 import {ref, watch} from 'vue'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/solid'
-import {usePage} from "@inertiajs/inertia-vue3";
+import {usePage} from "@inertiajs/vue3";
 
 let props = defineProps({
   modelValue: {
@@ -59,7 +59,7 @@ watch(selectedItem, (value) => {
 })
 
 const page = usePage()
-const themeColor = page.props.value.theme.color
+const themeColor = page.props.theme.color
 </script>
 
 <style scoped>

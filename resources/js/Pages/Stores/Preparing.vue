@@ -6,7 +6,7 @@ import H2 from "@/Components/H2.vue";
 import P from "@/Components/P.vue";
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import ALink from "@/Components/ALink.vue";
-import {Inertia} from "@inertiajs/inertia";
+import {router} from "@inertiajs/core";
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
@@ -17,7 +17,7 @@ let props = defineProps({
 })
 
 let timer = setInterval(() => {
-  Inertia.reload({ only: ['isReady'] })
+  router.reload({ only: ['isReady'] })
 }, 2000);
 
 // Watch prop

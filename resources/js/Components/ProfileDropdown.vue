@@ -68,8 +68,8 @@
 <script setup>
 import {Menu, MenuButton, MenuItem, MenuItems,} from '@headlessui/vue'
 import {ChevronDownIcon} from '@heroicons/vue/solid'
-import {Link, usePage} from '@inertiajs/inertia-vue3';
-import {Inertia} from "@inertiajs/inertia";
+import {Link, usePage} from '@inertiajs/vue3';
+import {router} from "@inertiajs/core";
 import { useI18n } from 'vue-i18n';
 import P from '@/Components/P.vue';
 
@@ -89,7 +89,7 @@ function getInitial(name) {
 }
 
 function logout() {
-  Inertia.post(route('logout'))
+  router.post(route('logout'))
 }
 
 const props = defineProps(
@@ -104,7 +104,7 @@ const props = defineProps(
 );
 
 const page = usePage()
-const themeColorLight = page.props.value.theme.color_light
+const themeColorLight = page.props.theme.color_light
 </script>
 
 <style scoped>

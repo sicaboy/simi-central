@@ -13,7 +13,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head } from '@inertiajs/vue3';
 import Footer from '@/Components/Footer.vue';
 
 const props = defineProps({

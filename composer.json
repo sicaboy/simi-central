@@ -18,7 +18,7 @@
         "aws/aws-sdk-php": "^3.337",
         "doctrine/dbal": "^3.7",
         "guzzlehttp/guzzle": "^7.9",
-        "inertiajs/inertia-laravel": "^0.6.11",
+        "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^10.48.28",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.10",
@@ -93,6 +93,9 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
+        },
+        "platform": {
+            "php": "8.4.5"
         }
     },
     "minimum-stability": "dev",

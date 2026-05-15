@@ -1,4 +1,4 @@
-FROM unit:php8.3
+FROM unit:php8.4
 ENV LANG C.UTF-8
 EXPOSE 80
 

@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref, watch } from 'vue';
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 import axios from 'axios';
 import AppAuthLayout from '@/Layouts/AppAuthLayout.vue';
 import ProfileDropdown from '@/Components/ProfileDropdown.vue';

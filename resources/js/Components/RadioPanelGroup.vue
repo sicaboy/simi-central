@@ -39,7 +39,7 @@
 <script setup>
 import {ref} from 'vue'
 import {RadioGroup, RadioGroupDescription, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue'
-import {usePage} from "@inertiajs/inertia-vue3";
+import {usePage} from "@inertiajs/vue3";
 
 const props = defineProps({
   items: {
@@ -54,7 +54,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 const selected = ref(props.modelValue);
-const themeColor = usePage().props.value.theme.color
+const themeColor = usePage().props.theme.color
 </script>
 
 <style scoped>
