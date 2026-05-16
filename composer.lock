@@ -5004,12 +5004,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:sicaboy/shared-saas.git",
-                "reference": "80099ad54cac6fa70ac938a26bc820ee008da935"
+                "reference": "1ff70fbb0643c63b6d92b3e8cf1947b53c3ef49c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sicaboy/shared-saas/zipball/80099ad54cac6fa70ac938a26bc820ee008da935",
-                "reference": "80099ad54cac6fa70ac938a26bc820ee008da935",
+                "url": "https://api.github.com/repos/sicaboy/shared-saas/zipball/1ff70fbb0643c63b6d92b3e8cf1947b53c3ef49c",
+                "reference": "1ff70fbb0643c63b6d92b3e8cf1947b53c3ef49c",
                 "shasum": ""
             },
             "require": {
@@ -5108,7 +5108,7 @@
                 "source": "https://github.com/sicaboy/shared-saas/tree/main",
                 "issues": "https://github.com/sicaboy/shared-saas/issues"
             },
-            "time": "2026-05-15T23:07:00+00:00"
+            "time": "2026-05-16T01:28:00+00:00"
         },
         {
             "name": "socialiteproviders/manager",

@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 import axios from 'axios';
-import AppAuthLayout from '@/Layouts/AppAuthLayout.vue';
+import AppAuthLayout from '@shared-saas/Layouts/AppAuthLayout.vue';
 import ProfileDropdown from '@shared-saas/Components/ProfileDropdown.vue';
 import Input from '@shared-saas/Components/Input.vue';
 import InputError from '@shared-saas/Components/InputError.vue';
