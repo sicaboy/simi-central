@@ -1,9 +1,9 @@
 <script setup>
 import AppAuthLayout from '@/Layouts/AppAuthLayout.vue';
-import ApplicationLogo from "@/Components/ApplicationLogo.vue";
-import H3 from "@/Components/H3.vue";
-import ALink from "@/Components/ALink.vue";
-import InformationBox from "@/Components/InformationBox.vue";
+import ApplicationLogo from "@shared-saas/Components/ApplicationLogo.vue";
+import H3 from "@shared-saas/Components/H3.vue";
+import ALink from "@shared-saas/Components/ALink.vue";
+import InformationBox from "@shared-saas/Components/InformationBox.vue";
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();

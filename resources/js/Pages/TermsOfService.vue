@@ -1,6 +1,6 @@
 <script setup>
 import { Head } from '@inertiajs/vue3';
-import JetAuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
+import JetAuthenticationCardLogo from '@shared-saas/Components/AuthenticationCardLogo.vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();

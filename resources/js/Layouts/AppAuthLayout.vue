@@ -14,7 +14,7 @@
 <script setup>
 import { computed } from 'vue';
 import { Head } from '@inertiajs/vue3';
-import Footer from '@/Components/Footer.vue';
+import Footer from '@shared-saas/Components/Footer.vue';
 
 const props = defineProps({
     title: {

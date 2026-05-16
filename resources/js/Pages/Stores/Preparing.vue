@@ -1,11 +1,11 @@
 <script setup>
 import {onMounted, onUnmounted, watch} from 'vue'
 import AppAuthLayout from "@/Layouts/AppAuthLayout.vue";
-import Spinner from "@/Components/Spinner.vue";
-import H2 from "@/Components/H2.vue";
-import P from "@/Components/P.vue";
-import ApplicationLogo from "@/Components/ApplicationLogo.vue";
-import ALink from "@/Components/ALink.vue";
+import Spinner from "@shared-saas/Components/Spinner.vue";
+import H2 from "@shared-saas/Components/H2.vue";
+import P from "@shared-saas/Components/P.vue";
+import ApplicationLogo from "@shared-saas/Components/ApplicationLogo.vue";
+import ALink from "@shared-saas/Components/ALink.vue";
 import {router} from "@inertiajs/core";
 import { useI18n } from 'vue-i18n';
 

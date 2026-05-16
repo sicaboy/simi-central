@@ -1,10 +1,10 @@
 <script setup>
 import AppAuthLayout from '@/Layouts/AppAuthLayout.vue';
-import Button from "@/Components/Button.vue";
-import ApplicationLogo from "@/Components/ApplicationLogo.vue";
-import H3 from "@/Components/H3.vue";
-import P from "@/Components/P.vue";
-import InformationBox from "@/Components/InformationBox.vue";
+import Button from "@shared-saas/Components/Button.vue";
+import ApplicationLogo from "@shared-saas/Components/ApplicationLogo.vue";
+import H3 from "@shared-saas/Components/H3.vue";
+import P from "@shared-saas/Components/P.vue";
+import InformationBox from "@shared-saas/Components/InformationBox.vue";
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();

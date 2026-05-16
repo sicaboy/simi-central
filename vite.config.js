@@ -22,8 +22,10 @@ export default defineConfig({
         }),
     ],
     resolve: {
+        preserveSymlinks: true,
         alias: {
             '@': resolve(__dirname, 'resources/js'),
+            '@shared-saas': resolve(__dirname, 'vendor/sicaboy/shared-saas/resources/js'),
         },
     },
 });

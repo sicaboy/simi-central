@@ -9,6 +9,7 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
+        './vendor/sicaboy/shared-saas/resources/js/**/*.vue',
     ],
 
     theme: {

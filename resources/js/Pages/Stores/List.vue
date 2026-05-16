@@ -1,12 +1,12 @@
 <script setup>
-import H2 from '@/Components/H2.vue';
-import P from '@/Components/P.vue';
+import H2 from '@shared-saas/Components/H2.vue';
+import P from '@shared-saas/Components/P.vue';
 import AppAuthLayout from '@/Layouts/AppAuthLayout.vue';
-import ProfileDropdown from '@/Components/ProfileDropdown.vue';
-import LinkCards from '@/Components/LinkCards.vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import EmptyState from '@/Components/EmptyState.vue';
-import Button from '@/Components/Button.vue';
+import ProfileDropdown from '@shared-saas/Components/ProfileDropdown.vue';
+import LinkCards from '@shared-saas/Components/LinkCards.vue';
+import ApplicationLogo from '@shared-saas/Components/ApplicationLogo.vue';
+import EmptyState from '@shared-saas/Components/EmptyState.vue';
+import Button from '@shared-saas/Components/Button.vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
