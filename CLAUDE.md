@@ -84,6 +84,6 @@ stripe trigger customer.subscription.created
 - **Stripe Integration**: Payment processing, subscription management, webhook routing
 
 ## Deployment
-- Docker support with Nginx Unit
+- Docker support with Nginx with PHP-FPM
 - Development: `docker-compose up -d --build`
 - Production: Custom deployment scripts (`deploy.sh`, `deploy-simple.sh`)
